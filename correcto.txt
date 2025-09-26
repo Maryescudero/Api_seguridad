@@ -1,0 +1,47 @@
+{
+  "email": "admin@correo.com",
+  "password": "admin1234"
+}
+
+
+token 
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluQGNvcnJ
+lby5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYWRvciIsInJvbCI6ImFkbWluaXN0cmFkb3IiLCJ
+pZCI6IjMiLCJpZF9ndWFyZGlhIjoiMCIsIm5iZiI6MTc1ODA3NDU1MSwiZXhwIjoxNzYxNTM
+wNTUxLCJpYXQiOjE3NTgwNzQ1NTEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF
+1ZCI6InBvc3RtYW4tY2xpZW50In0.MKjg6AWeDZSRunlotuG2t_B7n29pkFBfpHOijf1QbwI
+
+
+
+{
+  "idGuardia": 15,
+  "email": "camino@correo.com",
+  "password": "camino1234",
+  "rol": "guardia",
+  "estado": true
+}
+token
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNhbWlub0Bjb3
+JyZW8uY29tIiwicm9sZSI6Imd1YXJkaWEiLCJyb2wiOiJndWFyZGlhIiwiaWQiOiI0Iiwib
+mJmIjoxNzU2ODQ2ODM0LCJleHAiOjE3NjAzMDI4MzQsImlhdCI6MTc1Njg0NjgzNCwiaXNz
+IjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoicG9zdG1hbi1jbGllbnQifQ.UUQh
+RmZY4cxmCOc2G_QE7iv4tlszraTirqohOph7ULM
+
+
+{
+  "email": "caminito@correo.com",  /// nid 6
+  "password": "camino1234"
+}
+
+token 
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImNhbWluaXRvQGN
+vcnJlby5jb20iLCJyb2xlIjoiZ3VhcmRpYSIsInJvbCI6Imd1YXJkaWEiLCJpZCI6IjUiLCJ
+pZF9ndWFyZGlhIjoiNiIsIm5iZiI6MTc1NjkzODIwMCwiZXhwIjoxNzYwMzk0MjAwLCJpYXQ
+iOjE3NTY5MzgyMDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6InBvc3R
+tYW4tY2xpZW50In0.7Q9-799B3MzTyBXJ8rTeWx5hPxIdKXVtFSKQ1RsACOY
+
+
+
+

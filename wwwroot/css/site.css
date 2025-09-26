@@ -1,0 +1,185 @@
+:root {
+  --accent: #0a66c2;             
+  --text: #1f2937;               
+  --muted: #6b7280;
+  --card-border: rgba(0,0,0,.06);
+}
+
+/* ESTRUCTURA BASE */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;  
+  color: var(--text);
+}
+
+body.bg-lorbau {
+  background: url("/img/lorbau_imagen.png") center no-repeat fixed;
+  background-size: 340px;  
+  filter: brightness(85%);  
+  position: relative;
+}
+
+body.bg-lorbau::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,.70); 
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* CONTENEDOR PRINCIPAL */
+main.wrap {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;  
+  display: flex;
+  flex-direction: column;
+}
+
+/* TITULOS */
+.heading {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 6px 0 16px;
+}
+
+/* PANEL SUPERIOR */
+.panel {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  margin-bottom: 12px;
+}
+
+/* FORMULARIOS */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto 120px;
+  gap: 8px;
+  align-items: center;
+}
+
+.form-row label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+.form-row select,
+.form-row input[type="date"] {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* BOTONES */
+.btn {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .15s ease;
+  box-shadow: 0 3px 10px rgba(10,102,194,.25);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+/* META INFO */
+.meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 6px 4px 0;
+}
+
+/* GRID DE QR */
+.qr-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  flex: 1;               
+  justify-items: center; 
+}
+
+/* TARJETAS DE QR */
+.qr-card {
+  background: rgba(255,255,255,0.80);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;                  
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+  max-width: 420px;               
+  width: 100%;
+}
+
+.qr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+}
+
+.qr-card h2 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--text);
+  text-align: center;
+}
+
+
+/* IMAGEN QR */
+.qr-img {
+  width: 100%;
+  max-width: 240px;  
+  height: auto;
+  max-height: 30vh;  
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+
+/* FOOTER */
+.site-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 8px 12px;
+  background: rgba(255,255,255,.9);
+  border-top: 1px solid var(--card-border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .btn { width: 100%; }
+  .qr-grid {
+    grid-template-columns: 1fr;
+  }
+  .qr-img {
+    max-width: 200px;
+    max-height: 30vh;
+  }
+}

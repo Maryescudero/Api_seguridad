@@ -1,0 +1,91 @@
+﻿@model Api_seguridad.Models.QrPanelViewModel
+@{
+    ViewData["Title"] = "Control de Asistencia";
+    var fechaStrInput = Model.Fecha.ToString("yyyy-MM-dd"); // para <input type="date">
+    var fechaStrUi    = Model.Fecha.ToString("dd-MM-yyyy"); // para mostrar
+
+    string servicioTexto = Model.ServicioTexto ?? "";
+    string turnoTexto    = Model.TurnoTexto ?? "";
+
+    var ingresoUrl = Url.Action("Get", "Qr", new {
+        idServicio = Model.IdServicio,
+        idTurno    = Model.IdTurno,
+        fecha      = fechaStrInput,
+        tipo       = "ingreso"
+    });
+    var egresoUrl  = Url.Action("Get", "Qr", new {
+        idServicio = Model.IdServicio,
+        idTurno    = Model.IdTurno,
+        fecha      = fechaStrInput,
+        tipo       = "egreso"
+    });
+}
+
+<div class="wrap">
+  <h1 class="heading">LORBAU SECURITY</h1>
+
+  <div class="panel">
+    <form method="get" class="form-row">
+      <div>
+        <label>Servicio</label>
+        <select name="idServicio" onchange="this.form.submit()">
+          @foreach (var s in Model.Servicios)
+          {
+              <option value="@s.Value" selected="@(s.Selected ? "selected" : null)">@s.Text</option>
+          }
+        </select>
+      </div>
+
+      <div>
+        <label>Turno</label>
+        <select name="idTurno" onchange="this.form.submit()">
+          @foreach (var t in Model.Turnos)
+          {
+              <option value="@t.Value" selected="@(t.Selected ? "selected" : null)">@t.Text</option>
+          }
+        </select>
+      </div>
+
+      <div>
+        <label>Fecha</label>
+        <input type="date" name="fecha" value="@fechaStrInput" onchange="this.form.submit()"/>
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <button class="btn" type="submit">Actualizar</button>
+      </div>
+    </form>
+
+    <div class="meta">
+      Servicio: @servicioTexto | Turno: @turnoTexto | Fecha: @fechaStrUi
+    </div>
+  </div>
+
+  <div class="qr-grid">
+    <div class="qr-card">
+      <h2>Ingreso</h2>
+      <img id="qr-ingreso" class="qr-img" src="@ingresoUrl" alt="QR Ingreso"/>
+    </div>
+    <div class="qr-card">
+      <h2>Egreso</h2>
+      <img id="qr-egreso" class="qr-img" src="@egresoUrl" alt="QR Egreso"/>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+<script>
+(function(){
+  const refreshMs = (@Model.RefreshSeconds || 30) * 1000;
+  const bump = s => {
+    const u = new URL(s, location.origin);
+    u.searchParams.set('_ts', Date.now());
+    return u.toString();
+  };
+  setInterval(() => {
+    document.getElementById('qr-ingreso').src = bump('@ingresoUrl');
+    document.getElementById('qr-egreso').src  = bump('@egresoUrl');
+  }, refreshMs);
+})();
+</script>
+}
